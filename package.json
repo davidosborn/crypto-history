@@ -1,0 +1,63 @@
+{
+	"name": "crypto-history",
+	"version": "0.0.0",
+	"description": "Crypto History",
+	"keywords": [
+		"crypto",
+		"history"
+	],
+	"homepage": "http://davidosborn.io/crypto-history/",
+	"bugs": {
+		"url": "http://davidosborn.io/crypto-history/",
+		"email": "david@davidosborn.io"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "David Osborn",
+		"email": "david@davidosborn.io",
+		"url": "http://davidosborn.io/"
+	},
+	"bin": {
+		"crypto-history": "./index.js"
+	},
+	"dependencies": {
+		"@babel/core": "^7.0.0-beta.54",
+		"@babel/plugin-proposal-class-properties": "^7.0.0-beta.54",
+		"@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.54",
+		"@babel/preset-env": "^7.0.0-beta.54",
+		"@babel/preset-stage-0": "^7.0.0-beta.54",
+		"@babel/register": "^7.0.0-beta.54",
+		"davids-server-framework": "file:../davids-server-framework",
+		"node-fetch": "*"
+	},
+	"scripts": {
+		"start": "node --harmony index",
+		"start-forever": "forever start -a --minUptime 10000 --uid crypto-history -c 'node --harmony' index.js",
+		"stop-forever": "forever stop crypto-history"
+	},
+	"config": {
+		"db": "crypto_history",
+		"log_scheduler": true,
+		"log_sql": true
+	},
+	"private": true,
+	"babel": {
+		"presets": [
+			[
+				"@babel/env",
+				{
+					"targets": {
+						"node": "9"
+					}
+				}
+			],
+			"@babel/stage-0"
+		],
+		"plugins": [
+			"@babel/proposal-class-properties",
+			"@babel/proposal-optional-chaining"
+		]
+	}
+}
+
+
