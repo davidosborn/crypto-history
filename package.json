@@ -6,9 +6,9 @@
 		"crypto",
 		"history"
 	],
-	"homepage": "http://davidosborn.io/crypto-history/",
+	"homepage": "https://github.com/davidosborn/crypto-history",
 	"bugs": {
-		"url": "http://davidosborn.io/crypto-history/",
+		"url": "https://github.com/davidosborn/crypto-history",
 		"email": "david@davidosborn.io"
 	},
 	"license": "MIT",
@@ -17,20 +17,26 @@
 		"email": "david@davidosborn.io",
 		"url": "http://davidosborn.io/"
 	},
-	"bin": {
-		"crypto-history": "./index.js"
-	},
+	"main": "lib/index.js",
+	"bin": "lib/index.js",
 	"dependencies": {
-		"@babel/core": "^7.0.0-beta.54",
-		"@babel/plugin-proposal-class-properties": "^7.0.0-beta.54",
-		"@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.54",
-		"@babel/preset-env": "^7.0.0-beta.54",
-		"@babel/preset-stage-0": "^7.0.0-beta.54",
-		"@babel/register": "^7.0.0-beta.54",
-		"davids-server-framework": "file:../davids-server-framework",
+		"@davidosborn/api-framework": "*",
+		"@davidosborn/scheduler": "*",
+		"@davidosborn/sql-utilities": "*",
 		"node-fetch": "*"
 	},
+	"devDependencies": {
+		"@babel/cli": "^7.0.0-beta",
+		"@babel/core": "^7.0.0-beta",
+		"@babel/node": "^7.0.0-beta",
+		"@babel/plugin-proposal-optional-chaining": "^7.0.0-beta",
+		"@babel/preset-env": "^7.0.0-beta",
+		"@babel/preset-stage-0": "^7.0.0-beta",
+		"babel-preset-minify": "canary"
+	},
 	"scripts": {
+		"build": "npx babel -d lib src",
+		"prepublish": "npm run build",
 		"start": "node --harmony index",
 		"start-forever": "forever start -a --minUptime 10000 --uid crypto-history -c 'node --harmony' index.js",
 		"stop-forever": "forever stop crypto-history"
@@ -40,24 +46,20 @@
 		"log_scheduler": true,
 		"log_sql": true
 	},
-	"private": true,
 	"babel": {
 		"presets": [
 			[
-				"@babel/env",
-				{
+				"@babel/env", {
 					"targets": {
-						"node": "9"
+						"node": "current"
 					}
 				}
 			],
-			"@babel/stage-0"
+			"@babel/stage-0",
+			"minify"
 		],
 		"plugins": [
-			"@babel/proposal-class-properties",
 			"@babel/proposal-optional-chaining"
 		]
 	}
 }
-
-

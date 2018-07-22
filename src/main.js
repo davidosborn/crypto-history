@@ -1,7 +1,7 @@
 'use strict'
 
-import DatabaseConnectionFactory from 'davids-server-framework/database-connection-factory'
-import Scheduler from 'davids-server-framework/scheduler'
+import DatabaseConnectionFactory from '@davidosborn/api-framework/database-connection-factory'
+import Scheduler from '@davidosborn/scheduler/scheduler'
 import fs from 'fs'
 import process from 'process'
 import flattenObject from './flatten-object'

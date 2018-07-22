@@ -1,8 +1,8 @@
 'use strict'
 
-import Task from 'davids-server-framework/task'
+import Task from '@davidosborn/scheduler/task'
+import buildSqlInsertQuery from '@davidosborn/sql-utilities/build-sql-insert-query'
 import fetch from 'node-fetch'
-import buildSqlInsertQuery from './build-sql-insert-query'
 
 /**
  * A task to update the history.
