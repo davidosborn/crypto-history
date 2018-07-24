@@ -1,3 +1,6 @@
 'use strict'
 
-require('./main').default(require('process').argv.slice(2))
+import process from 'process'
+import main from './main'
+
+export default main(process.argv.slice(2))

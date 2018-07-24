@@ -1,7 +1,7 @@
 'use strict'
 
-import Task from '@davidosborn/scheduler/task'
-import buildSqlInsertQuery from '@davidosborn/sql-utilities/build-sql-insert-query'
+import Task from '@davidosborn/scheduler/lib/task'
+import buildSqlInsertQuery from '@davidosborn/sql-utilities/lib/build-sql-insert-query'
 import fetch from 'node-fetch'
 
 /**

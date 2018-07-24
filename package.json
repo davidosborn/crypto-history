@@ -6,9 +6,9 @@
 		"crypto",
 		"history"
 	],
-	"homepage": "https://github.com/davidosborn/crypto-history",
+	"homepage": "https://github.com/davidosborn/crypto-history#readme",
 	"bugs": {
-		"url": "https://github.com/davidosborn/crypto-history",
+		"url": "https://github.com/davidosborn/crypto-history/issues",
 		"email": "david@davidosborn.io"
 	},
 	"license": "MIT",
@@ -17,8 +17,27 @@
 		"email": "david@davidosborn.io",
 		"url": "http://davidosborn.io/"
 	},
+	"files": [
+		"lib"
+	],
 	"main": "lib/index.js",
 	"bin": "lib/index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/davidosborn/crypto-history"
+	},
+	"scripts": {
+		"build": "npx babel -d lib src",
+		"prepublishOnly": "npm run build",
+		"start": "npx babel-node src",
+		"start-background": "npx pm2 start",
+		"kill-background": "npx pm2 delete crypto-history"
+	},
+	"config": {
+		"db": "crypto_history",
+		"log_scheduler": true,
+		"log_sql": true
+	},
 	"dependencies": {
 		"@davidosborn/api-framework": "*",
 		"@davidosborn/scheduler": "*",
@@ -32,19 +51,11 @@
 		"@babel/plugin-proposal-optional-chaining": "^7.0.0-beta",
 		"@babel/preset-env": "^7.0.0-beta",
 		"@babel/preset-stage-0": "^7.0.0-beta",
-		"babel-preset-minify": "canary"
+		"babel-preset-minify": "canary",
+		"pm2": "*"
 	},
-	"scripts": {
-		"build": "npx babel -d lib src",
-		"prepublish": "npm run build",
-		"start": "node --harmony index",
-		"start-forever": "forever start -a --minUptime 10000 --uid crypto-history -c 'node --harmony' index.js",
-		"stop-forever": "forever stop crypto-history"
-	},
-	"config": {
-		"db": "crypto_history",
-		"log_scheduler": true,
-		"log_sql": true
+	"publishConfig": {
+		"access": "public"
 	},
 	"babel": {
 		"presets": [
