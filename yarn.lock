@@ -801,8 +801,8 @@
     to-fast-properties "^2.0.0"
 
 "@davidosborn/api-framework@*":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@davidosborn/api-framework/-/api-framework-0.0.6.tgz#126ea2ae75199bb5e1e37edd74b820fc9091b40a"
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@davidosborn/api-framework/-/api-framework-0.0.7.tgz#59dbd06babfd9e3bf47038dfcc12a61a21de634a"
   dependencies:
     bcrypt "*"
     bluebird "*"
@@ -828,8 +828,8 @@
     fastpriorityqueue "*"
 
 "@davidosborn/sql-utilities@*":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@davidosborn/sql-utilities/-/sql-utilities-0.0.7.tgz#17fd8a88604267833bdced2904012c077b720a2a"
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@davidosborn/sql-utilities/-/sql-utilities-0.0.8.tgz#45b10da7de761a3a17e8f4587e6818e9fedfc9a1"
 
 "@pm2/agent@^0.5.11":
   version "0.5.11"
