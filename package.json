@@ -18,7 +18,8 @@
 		"url": "http://davidosborn.io/"
 	},
 	"files": [
-		"lib"
+		"lib",
+		"src"
 	],
 	"main": "index.js",
 	"bin": "index.js",
