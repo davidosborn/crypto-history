@@ -40,7 +40,7 @@
 		"db": "crypto_history",
 		"log_scheduler": true,
 		"log_sql": true,
-		"update_history_task_interval": 36000
+		"update_history_task_interval": 3600000
 	},
 	"dependencies": {
 		"@davidosborn/api-framework": "*",
