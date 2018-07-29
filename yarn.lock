@@ -722,8 +722,8 @@
     to-fast-properties "^2.0.0"
 
 "@davidosborn/api-framework@*":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@davidosborn/api-framework/-/api-framework-0.0.7.tgz#59dbd06babfd9e3bf47038dfcc12a61a21de634a"
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@davidosborn/api-framework/-/api-framework-0.0.8.tgz#f7f44e03c593f476e94cbb431d529f0de7ed0853"
   dependencies:
     bcrypt "*"
     bluebird "*"
@@ -765,14 +765,14 @@
     babel-preset-minify canary
 
 "@davidosborn/scheduler@*":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@davidosborn/scheduler/-/scheduler-0.0.7.tgz#d6c83f46d1e6308f3623580476217bb2b82c11a4"
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@davidosborn/scheduler/-/scheduler-0.0.8.tgz#67418a4fdc27a1fdf6237a147f6767a798629931"
   dependencies:
     fastpriorityqueue "*"
 
 "@davidosborn/sql-utilities@*":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@davidosborn/sql-utilities/-/sql-utilities-0.0.8.tgz#45b10da7de761a3a17e8f4587e6818e9fedfc9a1"
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@davidosborn/sql-utilities/-/sql-utilities-0.0.9.tgz#cfc9f15987f8e756b0fb2bd8ead660a171e3a916"
 
 "@pm2/agent@^0.5.11":
   version "0.5.11"
