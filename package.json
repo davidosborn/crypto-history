@@ -30,13 +30,16 @@
 		"build": "npx babel -d lib src",
 		"prepublishOnly": "npm run build",
 		"start": "npx babel-node src",
-		"start-background": "npx pm2 start",
-		"kill-background": "npx pm2 delete crypto-history"
+		"start-background": "npx pm2 start --name=crypto-history lib",
+		"restart-background": "npx pm2 restart crypto-history",
+		"stop-background": "npx pm2 stop crypto-history",
+		"delete-background": "npx pm2 delete crypto-history"
 	},
 	"config": {
 		"db": "crypto_history",
 		"log_scheduler": true,
-		"log_sql": true
+		"log_sql": true,
+		"update_history_task_interval": 3600000
 	},
 	"dependencies": {
 		"@davidosborn/api-framework": "*",

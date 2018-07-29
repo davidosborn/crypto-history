@@ -3,11 +3,23 @@
 import Task from '@davidosborn/scheduler/lib/task'
 import buildSqlInsertQuery from '@davidosborn/sql-utilities/lib/build-sql-insert-query'
 import fetch from 'node-fetch'
+import process from 'process'
 
 /**
  * A task to update the history.
  */
 export default class UpdateHistoryTask extends Task {
+	/**
+	 * A column in the market data.
+	 * @typedef UpdateHistoryTask~MarketDataColumn
+	 * @type {Array}
+	 * @property {String} 0 The name.
+	 * @property {String} 1 The data type.
+	 */
+	/**
+	 * The columns in the market data.
+	 * @type {Array.<UpdateHistoryTask~MarketDataColumn>}
+	 */
 	static columns = [
 		['id', 'string'],
 		['name', 'string'],
@@ -30,12 +42,17 @@ export default class UpdateHistoryTask extends Task {
 	]
 
 	/**
+	 * The names of the columns in the market data that are required.
+	 */
+	static requiredColumns = ['symbol', 'last_updated']
+
+	/**
 	 * Creates a new instance.
 	 * @param {Object} db The database.
 	 */
 	constructor(db) {
 		super({
-			interval: 36000,//00,
+			interval: process.env.npm_package_config_update_history_task_interval,
 			name: 'update history'
 		})
 
@@ -50,12 +67,13 @@ export default class UpdateHistoryTask extends Task {
 	async perform(now, time) {
 		let response = await (await fetch('https://api.coinmarketcap.com/v1/ticker/?convert=CAD&limit=0')).json()
 		let columns = this.constructor.columns
+		let requiredColumns = this.constructor.requiredColumns
 		response = Array.from(response)
 			.filter(function(row) {
-				return (
-					row['symbol'] != null &&
-					row['last_updated'] != null
-				)
+				return requiredColumns
+					.every(function(column) {
+						return row[column] != null
+					})
 			})
 			.map(function(row) {
 				return columns
