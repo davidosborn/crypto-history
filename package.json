@@ -1,7 +1,7 @@
 {
 	"name": "@davidosborn/crypto-history",
 	"version": "0.0.8",
-	"description": "Crypto History",
+	"description": "A tool to store the history of the cryptocurrency market",
 	"keywords": [
 		"crypto",
 		"history"
@@ -30,7 +30,7 @@
 		"build": "npx babel -d lib src",
 		"prepublishOnly": "npm run build",
 		"start": "node index",
-		"start-background": "npx pm2 start --name=crypto-history index",
+		"start-background": "npx pm2 start --name=crypto-history .",
 		"restart-background": "npx pm2 restart crypto-history",
 		"stop-background": "npx pm2 stop crypto-history",
 		"delete-background": "npx pm2 delete crypto-history"
@@ -39,7 +39,7 @@
 		"db": "crypto_history",
 		"log_scheduler": true,
 		"log_sql": true,
-		"update_history_task_interval": 3600000
+		"update_history_task_interval": 36000
 	},
 	"dependencies": {
 		"@davidosborn/api-framework": "*",
@@ -50,11 +50,8 @@
 	"devDependencies": {
 		"@babel/cli": "^7.0.0-beta",
 		"@babel/core": "^7.0.0-beta",
-		"@babel/plugin-proposal-optional-chaining": "^7.0.0-beta",
-		"@babel/preset-env": "^7.0.0-beta",
-		"@babel/preset-stage-0": "^7.0.0-beta",
 		"@babel/register": "^7.0.0-beta",
-		"babel-preset-minify": "canary",
+		"@davidosborn/babel-preset": "*",
 		"pm2": "*"
 	},
 	"publishConfig": {
@@ -62,19 +59,7 @@
 	},
 	"babel": {
 		"presets": [
-			[
-				"@babel/env",
-				{
-					"targets": {
-						"node": "current"
-					}
-				}
-			],
-			"@babel/stage-0",
-			"minify"
-		],
-		"plugins": [
-			"@babel/proposal-optional-chaining"
+			"@davidosborn/babel-preset"
 		]
 	}
 }

@@ -66,9 +66,11 @@ export default class UpdateHistoryTask extends Task {
 	 */
 	async perform(now, time) {
 		let response = await (await fetch('https://api.coinmarketcap.com/v1/ticker/?convert=CAD&limit=0')).json()
+
 		let columns = this.constructor.columns
 		let requiredColumns = this.constructor.requiredColumns
-		response = Array.from(response)
+
+		let rows = Array.from(response)
 			.filter(function(row) {
 				return requiredColumns
 					.every(function(column) {
@@ -94,11 +96,13 @@ export default class UpdateHistoryTask extends Task {
 						return value
 					})
 			})
+
 		columns = columns
 			.map(function(column) {
 				return column[0]
 			})
-		let query = buildSqlInsertQuery('coinmarketcap', columns, response, { ignoreDuplicateKeys: true })
+
+		let query = buildSqlInsertQuery('coinmarketcap', columns, rows, {ignoreDuplicateKeys: true})
 		this._db.query(this._db.constructor.ROLE_APP, query)
 	}
 }
