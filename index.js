@@ -13,7 +13,7 @@ function requireMain() {
 		}
 		catch (e) {
 			if (e.code !== 'MODULE_NOT_FOUND')
-				throw e;
+				throw e
 		}
 	}
 
