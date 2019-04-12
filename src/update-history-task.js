@@ -103,6 +103,6 @@ export default class UpdateHistoryTask extends Task {
 			})
 
 		let query = buildSqlInsertQuery('coinmarketcap', columns, rows, {ignoreDuplicateKeys: true})
-		this._db.query(this._db.constructor.ROLE_APP, query)
+		await this._db.query(this._db.constructor.ROLE_APP, query)
 	}
 }

@@ -49,9 +49,9 @@
 		"node-fetch": "*"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.0.0-beta",
-		"@babel/core": "^7.0.0-beta",
-		"@babel/register": "^7.0.0-beta",
+		"@babel/cli": "*",
+		"@babel/core": "*",
+		"@babel/register": "*",
 		"@davidosborn/babel-preset": "*",
 		"pm2": "*"
 	},
