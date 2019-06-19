@@ -1,5 +1,7 @@
 'use strict'
 
+// TODO: This is under development and is not used yet.
+
 import binance from 'binance-api-node'
 import Exchange from './exchange'
 
