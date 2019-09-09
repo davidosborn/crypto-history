@@ -4,7 +4,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 APP=crypto-history
 CLEAN=yes
-#RUN=.
+RUN=.
 
 . ../deploy/cfg.sh
 . ../deploy/deploy.sh
