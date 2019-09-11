@@ -1,6 +1,6 @@
 {
 	"name": "@davidosborn/crypto-history",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"description": "A tool to store the history of the cryptocurrency market",
 	"keywords": [
 		"crypto",
